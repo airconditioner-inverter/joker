@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Open Graph / LINE / FB 縮圖 -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="🐴 生活哲學日記 — 今日金句分享">
+<meta property="og:description" content="我叫生活放我一馬，沒想到牠不是放馬離開，而是放馬過來⚡ 點進來看今日最強生活感悟">
+<meta property="og:image" content="https://i.imgur.com/REPLACE_ME.png">
+<meta property="og:url" content="">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="🐴 生活哲學日記 — 今日金句分享">
+<meta name="twitter:description" content="我叫生活放我一馬，沒想到牠不是放馬離開，而是放馬過來⚡">
+
+<title>🐴 生活哲學日記 — 今日金句分享</title>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sixtyfour&family=Boogaloo&family=Fredoka+One&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    background: #000080;
+    font-family: 'Boogaloo', cursive;
+    overflow-x: hidden;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='24' font-size='24'%3E%E2%AD%90%3C/text%3E%3C/svg%3E"), auto;
+  }
+
+  .marquee-bar {
+    background: #ff0000;
+    color: #ffff00;
+    font-size: 17px;
+    font-family: 'Fredoka One', cursive;
+    padding: 5px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    border-bottom: 3px solid #00ff00;
+    border-top: 3px solid #00ff00;
+  }
+  .marquee-inner {
+    display: inline-block;
+    animation: marquee 14s linear infinite;
+    padding-left: 100%;
+  }
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .star {
+    position: absolute;
+    animation: twinkle 2s ease-in-out infinite alternate;
+  }
+  @keyframes twinkle {
+    0%   { opacity: 0.2; transform: scale(0.8); }
+    100% { opacity: 1;   transform: scale(1.2); }
+  }
+
+  .main-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 16px 40px;
+  }
+
+  .title-art {
+    font-family: 'Sixtyfour', monospace;
+    font-size: clamp(20px, 5vw, 40px);
+    text-align: center;
+    margin: 22px 0 10px;
+    animation: rainbow 1.5s linear infinite;
+    text-shadow: 4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000;
+    line-height: 1.35;
+  }
+  @keyframes rainbow {
+    0%   { color: #ff0000; }
+    16%  { color: #ff8800; }
+    33%  { color: #ffff00; }
+    50%  { color: #00ff00; }
+    66%  { color: #00ffff; }
+    83%  { color: #ff00ff; }
+    100% { color: #ff0000; }
+  }
+
+  .blink-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffff00;
+    color: #000;
+    font-family: 'Fredoka One', cursive;
+    font-size: 14px;
+    padding: 4px 14px;
+    border: 3px solid #000;
+    margin-bottom: 20px;
+    animation: blink 0.8s step-end infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+
+  .divider {
+    width: 100%;
+    max-width: 580px;
+    height: 8px;
+    background: repeating-linear-gradient(90deg,
+      #ff0000 0 10px, #ffff00 10px 20px,
+      #00ff00 20px 30px, #0000ff 30px 40px);
+    margin: 10px 0;
+  }
+
+  .joke-box {
+    background: linear-gradient(135deg, #ff00ff, #8800ff, #0000ff);
+    border: 6px ridge #ffff00;
+    padding: 28px 32px;
+    max-width: 580px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 0 4px #ff0000, 0 0 0 8px #00ff00, 0 0 30px #ff00ff;
+    margin-bottom: 20px;
+  }
+  .joke-box::before {
+    content: "★  ★  ★";
+    display: block;
+    color: #ffff00;
+    font-size: 22px;
+    margin-bottom: 14px;
+    animation: rainbow 1s linear infinite;
+  }
+  .joke-box::after {
+    content: "★  ★  ★";
+    display: block;
+    color: #ffff00;
+    font-size: 22px;
+    margin-top: 14px;
+    animation: rainbow 1s linear infinite reverse;
+  }
+
+  .joke-emoji {
+    font-size: 60px;
+    margin-bottom: 14px;
+    display: block;
+    animation: bounce 0.8s ease-in-out infinite alternate;
+  }
+  @keyframes bounce {
+    0%   { transform: translateY(0)   rotate(-5deg); }
+    100% { transform: translateY(-12px) rotate(5deg); }
+  }
+
+  .joke-setup {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(18px, 4.5vw, 26px);
+    color: #ffffff;
+    line-height: 1.5;
+    text-shadow: 2px 2px 0 #000, -1px -1px 0 #000;
+    margin-bottom: 10px;
+  }
+  .joke-punchline {
+    font-family: 'Boogaloo', cursive;
+    font-size: clamp(15px, 3.5vw, 21px);
+    color: #ffff00;
+    line-height: 1.6;
+    text-shadow: 1px 1px 0 #000;
+  }
+
+  .counter-text {
+    color: #00ffff;
+    font-size: 13px;
+    font-family: 'Courier New', monospace;
+    margin: 6px 0 2px;
+    text-shadow: 0 0 8px #00ffff;
+  }
+  .visitor-count {
+    color: #ffff00;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    margin-bottom: 22px;
+    text-shadow: 0 0 8px #ffff00;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    font-family: 'Sixtyfour', monospace;
+    font-size: clamp(13px, 3vw, 19px);
+    color: #000000;
+    background: #ffff00;
+    border: 4px solid #ff0000;
+    padding: 14px 32px;
+    text-decoration: none;
+    cursor: pointer;
+    animation: btnPulse 0.6s ease-in-out infinite alternate;
+    box-shadow: 4px 4px 0 #ff0000, 8px 8px 0 #ff8800;
+    letter-spacing: 1px;
+    transition: background 0.1s, color 0.1s, transform 0.1s, box-shadow 0.1s;
+  }
+  .cta-btn:hover {
+    background: #ff00ff;
+    color: #ffff00;
+    border-color: #00ff00;
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0 #ff0000, 12px 12px 0 #ff8800;
+    animation: none;
+  }
+  @keyframes btnPulse {
+    0%   { transform: scale(1); }
+    100% { transform: scale(1.05); }
+  }
+
+  .footer-info {
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 22px;
+    text-shadow: 0 0 6px #00ff00;
+    line-height: 1.9;
+  }
+  .webring {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .webring span {
+    background: #800080;
+    color: #ffffff;
+    border: 2px solid #ff00ff;
+    padding: 3px 10px;
+    font-size: 11px;
+    font-family: 'Courier New', monospace;
+  }
+  .hit-counter {
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    background: #000;
+    border: 1px solid #00ff00;
+    padding: 2px 10px;
+    margin-top: 14px;
+  }
+  .fine-print {
+    color: #ff8888;
+    font-size: 10px;
+    font-family: 'Courier New', monospace;
+    opacity: 0.6;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="marquee-bar">
+  <span class="marquee-inner">
+    🌟 歡迎光臨本站！！ 🌟 最佳瀏覽解析度：800x600 🌟 IE 6.0 最佳化 🌟 本站已被瀏覽 00001337 次 🌟 請加入我的最愛！ 🌟 轉貼請標明出處 🌟 本站無毒保證 🌟
+  </span>
+</div>
+
+<div class="stars" id="stars"></div>
+
+<div class="main-container">
+
+  <div class="title-art">★ 爆笑生活哲學 ★<br>每日金句分享站</div>
+
+  <div class="blink-badge">🚧 網站建置中 🚧</div>
+
+  <div class="divider"></div>
+
+  <div class="joke-box">
+    <span class="joke-emoji">🐴</span>
+    <p class="joke-setup">我叫生活放我一馬</p>
+    <p class="joke-punchline">沒想到牠不是放馬離開<br>而是放馬過來 ⚡</p>
+  </div>
+
+  <div class="counter-text">⚡ 你是今日第 <span id="cnt">13,337</span> 位訪客 ⚡</div>
+  <div class="visitor-count">🌍 累計訪客：69,420 人 ｜ 線上人數：3 人</div>
+
+  <a class="cta-btn" href="https://www.youtube.com/watch?v=biMn4YC5qCI" target="_blank">
+    再笑一下 😂 &gt;&gt;
+  </a>
+
+  <div class="divider"></div>
+
+  <div class="footer-info">
+    📖 留言板 ｜ 🔗 友站連結 ｜ 📧 站長信箱<br>
+    <span style="color:#ff8800">最後更新：2003/08/14 23:59</span><br>
+    <span style="color:#888; font-size:10px">本站使用 GeoCities 免費空間</span>
+  </div>
+
+  <div class="webring">
+    <span>← 前一站</span>
+    <span>笑話網圈</span>
+    <span>下一站 →</span>
+  </div>
+
+  <div class="hit-counter">HIT COUNTER: [▓▓░░░░░░░░] 13337</div>
+
+  <p class="fine-print">※ 背景音樂播放中（請開啟喇叭）※ 建議使用 Internet Explorer</p>
+
+</div>
+
+<script>
+  const starEmojis = ['⭐','🌟','✨','💫','🌠'];
+  const starsEl = document.getElementById('stars');
+  for (let i = 0; i < 40; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top  = Math.random() * 100 + '%';
+    s.style.animationDelay    = (Math.random() * 2) + 's';
+    s.style.animationDuration = (1.5 + Math.random() * 2) + 's';
+    s.style.fontSize = (12 + Math.random() * 16) + 'px';
+    s.textContent = starEmojis[Math.floor(Math.random() * starEmojis.length)];
+    starsEl.appendChild(s);
+  }
+
+  let count = 13337;
+  const cntEl = document.getElementById('cnt');
+  setInterval(() => {
+    count += Math.floor(Math.random() * 3);
+    cntEl.textContent = count.toLocaleString();
+  }, 3000);
+</script>
+
+</body>
+</html>
